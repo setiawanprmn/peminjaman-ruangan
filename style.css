@@ -90,19 +90,20 @@ button {
   font-weight: 700;
   border: none;
   outline: none;
+  cursor: pointer;
 
   &:active {
     outline-offset: 2px;
   }
 }
 
-button.btn-primary {
+.btn-primary {
   background-color: var(--blue-dark);
   color: var(--white);
   outline: 2px solid var(--blue-dark);
 }
 
-button.btn-secondary {
+.btn-secondary {
   background-color: var(--blue-light);
   color: var(--blue-dark);
   outline: 2px solid var(--blue-light);
@@ -122,6 +123,10 @@ button.btn-secondary {
   }
 }
 
+label {
+  color: var(--dark);
+  font-size: 14px;
+}
 
 /* util */
 ::placeholder {
