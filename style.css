@@ -146,8 +146,7 @@ body,
 /* navigation */
 aside {
   position: relative;
-  width: fit-content;
-  min-width: 20%;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
