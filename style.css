@@ -165,7 +165,8 @@ aside {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px;
+  padding-inline: 40px;
+  padding-block: 32px;
   background-color: var(--blue-light);
 
   .logo {
@@ -254,6 +255,7 @@ aside {
 .card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 6px;
   padding-inline: 24px;
   padding-block: 18px;
@@ -263,11 +265,11 @@ aside {
   cursor: pointer;
 
   &.sm {
-    column-span: 1;
+    grid-column: span 1 / span 1;
   }
   
   &.lg {
-    column-span: 3;
+    grid-column: span 3 / span 3;
   }
 
   .card-title {
@@ -281,7 +283,6 @@ aside {
   }
 
   .card-status {
-    margin-left: auto;
     padding-inline: 12px;
     padding-block: 6px;
     border-radius: 5px;
@@ -299,6 +300,10 @@ aside {
     &.booking {
       background-color: var(--yellow-light);
       color: var(--yellow-dark);
+    }
+    &.done {
+      background-color: var(--blue-light);
+      color: var(--blue-dark);
     }
   }
 }
