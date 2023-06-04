@@ -398,6 +398,13 @@ input.label {
 label {
   color: var(--dark);
   font-size: 14px;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &.disabled {
+  background-color: var(--system-dark);
+  color: var(--white)
+}
 }
 
 /* util */
@@ -407,6 +414,10 @@ label {
 
 a {
   text-decoration: none;
+}
+
+h4 {
+  font-weight: 400;
 }
 
 .copyright {
