@@ -15,11 +15,10 @@ cardStatus.forEach((item) => {
 // todo: disable lantai 3 button for 'gedung-serbaguna'
 const gedungRadio = document.querySelectorAll('input[name="gedung"]')
 const lantai3Radio = document.querySelector('label[for="lantai-3"]')
-let selected
 
 gedungRadio.forEach(item => {
   item.addEventListener('click', (el) => {
-    selected = item.getAttribute("id"); 
+    let selected = item.getAttribute("id"); 
     console.log(selected)
 
     if (selected === 'gedung-serbaguna') {
