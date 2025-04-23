@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="icon" href="../favicon.png" type="image/png">
-  <title>Profil</title>
-</head>
-<body>
-  
-  <div class="container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FullCalendar CDN (CSS & JS) -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" href="../favicon.png" />
+    <title>Ruangan Kelas</title>
+  </head>
+  <body>
+    <div class="container">
       <!-- aside menu -->
       <aside>
         <div class="name">
@@ -26,10 +30,11 @@
           <h2 class="profile-name">Setiawan Permana</h2>
           <h3 class="profile-status">Mahasiswa</h3>
         </div>
+        <!-- menu -->
         <ul class="list">
           <li>
             <a href="./home.html">
-              <div class="menu-item">
+              <div class="menu-item active">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -71,7 +76,7 @@
           </li>
           <li>
             <a href="./profil.html">
-              <div class="menu-item active">
+              <div class="menu-item">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -111,12 +116,37 @@
           </div>
         </a>
       </aside>
+
+      <!-- main content -->
       <main class="main">
         <header class="header">
-          <h1 class="title-page">Profil</h1>
+          <h1 class="title-page">Ruang Kelas</h1>
           <div class="divider"></div>
           <div class="header-util">
-            <div class="notif" style="margin-left: auto;">
+            <div class="search-box">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="svg-search"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+              <input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Cari ruangan..."
+                class="form-input search"
+              />
+            </div>
+            <div class="notif">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -135,10 +165,66 @@
           </div>
         </header>
         <div class="content">
+          <!-- radio gedung lantai -->
+          <div class="label-wrapper">
+            <ul>
+              <li class="label-item">
+                <input
+                  type="radio"
+                  name="gedung"
+                  id="untirta-sindangsari"
+                  class="label"
+                  checked
+                />
+                <label for="untirta-sindangsari" class="label-radio" onclick="location.href='./home.html'">
+                  Back
+                </label>
+               
+              </li>
+            </ul>
+            <!-- <ul>
+              <li class="label-item">
+                <input
+                  type="radio"
+                  name="lantai"
+                  id="lantai-1"
+                  class="label"
+                  checked
+                />
+                <label for="lantai-1" class="label-radio"> Lantai 1 </label>
+                <input type="radio" name="lantai" id="lantai-2" class="label" />
+                <label for="lantai-2" class="label-radio"> Lantai 2 </label>
+                <input type="radio" name="lantai" id="lantai-3" class="label" />
+                <label for="lantai-3" class="label-radio"> Lantai 3 </label>
+              </li>
+            </ul> -->
+          </div>
+          <div id="calendar"></div>
+        
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var calendarEl = document.getElementById('calendar');
 
+              var calendar = new FullCalendar.Calendar(calendarEl, {
+                selectable: true,
+                headerToolbar: {
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                dateClick: function(info) {
+                  calendar.changeView('timeGridDay', info.dateStr);
+                }
+              });           
+
+              calendar.render();
+            });
+          </script>
+        
         </div>
       </main>
     </div>
-  
-</body>
+
+    <script src="../app.js"></script>
+  </body>
 </html>
