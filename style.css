@@ -251,7 +251,11 @@ aside {
     }
   }
 }
-
+#calendar {
+  align-content: left;
+  max-width: 700px;
+  margin: 40px auto;
+}
 .card {
   display: flex;
   align-items: center;
@@ -280,8 +284,9 @@ aside {
     .card-gedung {
       font-weight: 400;
     }
+    
   }
-
+  
   .card-status {
     padding-inline: 12px;
     padding-block: 6px;
@@ -319,7 +324,11 @@ aside {
     outline: 2px solid var(--blue-dark);
   }
 }
-
+a,
+      a:visited {
+        color: var(--dark); 
+        text-decoration: none;
+      }
 /* button */
 .btn {
   padding-inline: 16px;
@@ -395,6 +404,11 @@ input.label {
   }
 }
 
+label.disabled {
+  background-color: var(--system-dark);
+  color: var(--white);
+}
+
 label {
   color: var(--dark);
   font-size: 14px;
@@ -461,4 +475,39 @@ h4 {
   height: 20px;
   color: var(--slate);
   transform: translateX(4px);
+}
+
+/* Mengatur label untuk radio buttons agar tampil horizontal */
+.label-wrapper ul {
+  display: flex;
+  gap: 20px; /* Jarak antar elemen */
+  padding: 0;
+  list-style: none;
+}
+
+.label-item {
+  display: flex;
+  align-items: center;
+}
+
+.label-radio {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: var(--rounded);
+  background-color: var(--white);
+  color: var(--blue-dark);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.label-radio:hover {
+  background-color: var(--blue-dark);
+  color: var(--white);
+}
+
+/* Jika sudah terpilih, ubah warna */
+input:checked + .label-radio {
+  background-color: var(--blue-dark);
+  color: var(--white);
 }
